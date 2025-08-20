@@ -1,0 +1,142 @@
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 180px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-container img:hover {
+    transform: scale(1.05);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-items {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items li {
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    a {
+        text-decoration: none;
+    }
+}
+
+.nav-items li:hover {
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+.nav-items li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+
+.nav-items li:not(:last-child):hover::after {
+    width: 100%;
+}
+
+.lilo {
+    color: white;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 25px;
+    padding: 12px 24px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.lilo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.lilo:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+        height: 70px;
+    }
+    
+    .logo-container img {
+        width: 140px;
+    }
+    
+    .nav-items {
+        gap: 20px;
+    }
+    
+    .nav-items li {
+        font-size: 0.9rem;
+    }
+    
+    .lilo {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .nav-items {
+        gap: 15px;
+    }
+    
+    .nav-items li {
+        font-size: 0.8rem;
+    }
+}

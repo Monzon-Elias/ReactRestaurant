@@ -1,0 +1,225 @@
+.top-picks-section {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.top-picks-section h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 0 25px 0;
+    font-weight: 600;
+}
+
+.top-picks-grid {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.top-pick-item {
+    width: 280px;
+    background: linear-gradient(135deg, #434343 0%, #1f1f1f 100%);
+    padding: 0;
+    border-radius: 20px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.top-pick-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.pick-image-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.pick-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.pick-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px dashed #555;
+}
+
+.pick-image-placeholder.fallback {
+    background-color: #e74c3c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+    border: none;
+}
+
+.pick-image-placeholder.fallback .placeholder-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    opacity: 1;
+}
+
+.pick-image-placeholder.fallback .placeholder-text {
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    opacity: 0.7;
+}
+
+.placeholder-text {
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.pick-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.pick-info {
+    flex: 1;
+}
+
+.pick-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.pick-title-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1;
+}
+
+.vegetarian-indicator {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.veg-icon {
+    width: 16px;
+    height: 16px;
+    background: #22c55e;
+    border: 1px solid #22c55e;
+    border-radius: 2px;
+    position: relative;
+}
+
+.veg-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.pick-header h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 700;
+    flex: 1;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.pick-price {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.pick-description {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.add-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    color: #22c55e;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    min-width: 80px;
+    z-index: 15;
+}
+
+.add-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .top-picks-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .top-picks-section {
+        padding: 20px;
+    }
+}
+

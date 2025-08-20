@@ -1,0 +1,160 @@
+.recommended-dishes-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.recommended-dishes-section h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.recommended-dishes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recommended-dish-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #764ba2;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recommended-dish-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dish-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.dish-info {
+    flex: 1;
+}
+
+.dish-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.dish-header h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 600;
+    flex: 1;
+    margin-right: 15px;
+}
+
+.dish-price {
+    background: #764ba2;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.dish-description {
+    color: #666;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    line-height: 1.5;
+}
+
+.dish-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rating-star {
+    font-size: 1.2rem;
+}
+
+.rating-text {
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.dish-image-section {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.dish-image {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.add-button {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: white;
+    color: #22c55e;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    min-width: 80px;
+    z-index: 15;
+}
+
+.add-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .recommended-dishes-section {
+        padding: 20px;
+    }
+    
+    .dish-content {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .dish-image-section {
+        order: -1;
+    }
+    
+    .dish-image {
+        width: 140px;
+        height: 105px;
+    }
+    
+    .add-button {
+        bottom: -5px;
+        right: -5px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+
