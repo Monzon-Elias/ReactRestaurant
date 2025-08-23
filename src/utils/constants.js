@@ -4,7 +4,7 @@ export const LNG = 77.624532;
 export const COLLECTION = '83639';
 
 // Endpoints a través del proxy local (vite.config.js)
-export const LIST_URL   = 'https://www.swiggy.com/dapi/restaurants/list/v5';
+export const LIST_URL   = 'https://corsproxy.io/?url=https://www.swiggy.com/dapi/restaurants/list/v5';
 
 export const buildListURL = (lat = LAT, lng = LNG, collection = COLLECTION) =>
     `${LIST_URL}?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&collection=${collection}`;
