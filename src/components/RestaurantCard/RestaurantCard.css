@@ -3,7 +3,9 @@
     flex-flow: column nowrap;
     justify-content: start;
     align-items: stretch;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
+    min-width: 250px;
     height: 440px;
     margin: 10px;
     border-radius: 10px;
@@ -85,6 +87,45 @@
         .rating {
             color: #ffd93d !important;
             font-weight: 500;
+        }
+    }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .restaurant-card {
+        max-width: 280px;
+        min-width: 220px;
+        height: 400px;
+        margin: 8px;
+        
+        .restaurant-details {
+            .restaurant-name {
+                font-size: 1.1rem;
+            }
+            
+            p {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .restaurant-card {
+        max-width: 100%;
+        min-width: 200px;
+        height: 380px;
+        margin: 5px;
+        
+        .restaurant-details {
+            .restaurant-name {
+                font-size: 1rem;
+            }
+            
+            p {
+                font-size: 0.75rem;
+            }
         }
     }
 }
