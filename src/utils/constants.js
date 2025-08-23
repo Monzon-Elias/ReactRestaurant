@@ -5,9 +5,14 @@ export const COLLECTION = '83639';
 
 // Endpoints a través del proxy local (vite.config.js)
 export const LIST_URL   = 'https://corsproxy.io/?url=https://www.swiggy.com/dapi/restaurants/list/v5';
+// Alternative CORS proxy if the first one doesn't work
+export const LIST_URL_ALT = 'https://api.allorigins.win/raw?url=https://www.swiggy.com/dapi/restaurants/list/v5';
 
 export const buildListURL = (lat = LAT, lng = LNG, collection = COLLECTION) =>
     `${LIST_URL}?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&collection=${collection}`;
+
+export const buildListURLAlt = (lat = LAT, lng = LNG, collection = COLLECTION) =>
+    `${LIST_URL_ALT}?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&collection=${collection}`;
 
 export const CDN_URL =
     'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/';
