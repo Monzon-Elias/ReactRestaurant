@@ -1,0 +1,84 @@
+.with-promoted-label {
+    position: relative;
+    display: inline-block;
+}
+
+.with-promoted-label label {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    z-index: 10;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    border: 2px solid white;
+    transform: rotate(-5deg);
+    animation: float 3s ease-in-out infinite;
+}
+
+.with-promoted-label label::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.with-promoted-label label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: rotate(-5deg) translateY(0px);
+    }
+    50% {
+        transform: rotate(-5deg) translateY(-3px);
+    }
+}
+
+/* Hover effect */
+.with-promoted-label:hover label {
+    transform: rotate(-5deg) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .with-promoted-label label {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+        top: -6px;
+        left: -6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .with-promoted-label label {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+        top: -5px;
+        left: -5px;
+    }
+}

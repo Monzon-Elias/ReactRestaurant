@@ -3,9 +3,16 @@ import './RestaurantHeader.css';
 
 const RestaurantHeader = ({ resInfo }) => {
     if (!resInfo) return null;
+    
+    const isRestaurantOpen = resInfo?.availability?.opened;
 
     return (
         <div className="restaurant-header">
+            {/* Open/Closed Label */}
+            {isRestaurantOpen && (
+                <div className="open-label">Open</div>
+            )}
+            
             <div className="restaurant-info">
                 <div className="restaurant-main">
                     {resInfo?.cloudinaryImageId && (

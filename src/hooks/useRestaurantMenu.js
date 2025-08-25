@@ -14,16 +14,17 @@ const useRestaurantMenu = resId => {
         try {
             const data = await fetch(MENU_URL+resId);
             const json = await data.json();
-            
+            console.log(json.data.cards);
             // Establecer resInfo (esto funciona)
             if (json?.data?.cards?.[2]?.card?.card?.info) {
                 setResInfo(json.data.cards[2].card.card.info);
+                //console.log(json.data.cards[2].card.card.info);
             }
             
             // Top picks - usar la lógica que funcionaba
             if (json?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards) {
                 const regularCards = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards;
-                
+
                 // Buscar top picks en la posición que funcionaba
                 if (regularCards[1]?.card?.card?.carousel?.[0]?.dish?.info?.addons?.[0]?.choices) {
                     const topPicksData = regularCards[1].card.card.carousel[0].dish.info.addons[0].choices;
