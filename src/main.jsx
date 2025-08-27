@@ -9,10 +9,7 @@ import Contact from './components/Contact/Contact.jsx'
 import Error from './components/Error/Error.jsx'
 import HeroSection from './utils/HeroSection.jsx'
 import RestaurantMenu from './components/RestaurantMenu/RestaurantMenu.jsx'
-import isOpen from './components/isOpen/isOpen.jsx'
 
-// Create the enhanced RestaurantMenu component with open/closed label
-const EnhancedRestaurantMenu = isOpen(RestaurantMenu);
 
 const AppLayout = ()=> {
     const {resId} = useParams();
@@ -47,7 +44,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/restaurant/:resId",
-                element: <EnhancedRestaurantMenu />
+                element: <RestaurantMenu />
             }
         ]
     },
