@@ -9,7 +9,7 @@ const TopRatedRestaurants = ({setRestaurants, allRestaurants}) => {
                         .sort((a, b) => b.info.avgRating - a.info.avgRating)
                     
                     // If no restaurants found with 4.5+ rating, lower threshold to 4.0
-                    if (filteredRestaurants.length === 0 || filteredRestaurants.length === 1) {
+                    if (filteredRestaurants.length === 1) {
                         filteredRestaurants = allRestaurants.filter(restaurant => restaurant.info.avgRating >= 4.0)
                             .sort((a, b) => b.info.avgRating - a.info.avgRating)
                     }
