@@ -2,13 +2,8 @@ import { CDN_URL } from "../../utils/constants";
 import './RecommendedDishes.css';
 
 const RecommendedDishes = ({ recommendedDishes }) => {
-    const getRandomPrice = () => {
-        // Genera precio aleatorio entre 150 y 400
-        return Math.floor(Math.random() * (400 - 150 + 1)) + 150;
-    };
-
     if (!recommendedDishes || recommendedDishes.length === 0) {
-        return <p>No hay platos recomendados disponibles</p>;
+        return null;
     }
 
     return (
@@ -22,13 +17,10 @@ const RecommendedDishes = ({ recommendedDishes }) => {
                                 <div className="dish-header">
                                     <h3>{dish.card.info.name}</h3>
                                     <span className="dish-price">
-                                        {dish.card.info.price && dish.card.info.price > 0 ? 
-                                            `₹${dish.card.info.price / 100}` : 
-                                            `₹${getRandomPrice()} *`
-                                        }
+                                        ₹{(dish.card.info?.price || dish.card.info?.defaultPrice || 0) / 100}
                                     </span>
                                 </div>
-                                <p className="dish-description">{dish.card.info.description}</p>
+                                <p className="dish-description">{dish.card.info.description || dish.card.info.category}</p>
                                 {dish.card.info.ratings?.aggregatedRating?.rating && (
                                     <div className="dish-rating">
                                         <span className="rating-star">⭐</span>
@@ -37,13 +29,16 @@ const RecommendedDishes = ({ recommendedDishes }) => {
                                 )}
                             </div>
                             <div className="dish-image-section">
-                                {dish.card.info.imageId && (
+                                {dish.card.info.imageId ? (
                                     <img 
                                         src={`${CDN_URL}/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/${dish.card.info.imageId}`}
                                         alt={dish.card.info.name}
                                         className="dish-image"
                                     />
-                                )}
+                                ) : <div className="pick-image-placeholder fallback">
+                                <span className="placeholder-icon">🍜</span>
+                                <span className="placeholder-text">Foto no disponible</span>
+                            </div>}
                                 <button className="add-button">ADD</button>
                             </div>
                         </div>

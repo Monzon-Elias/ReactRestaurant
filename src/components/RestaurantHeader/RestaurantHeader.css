@@ -203,12 +203,8 @@
     
     .restaurant-stats {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 15px;
-    }
-    
-    .delivery-info {
-        text-align: left;
     }
 }
 

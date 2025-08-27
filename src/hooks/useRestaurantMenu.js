@@ -14,32 +14,31 @@ const useRestaurantMenu = resId => {
         try {
             const data = await fetch(MENU_URL+resId);
             const json = await data.json();
-            console.log(json.data.cards);
-            // Establecer resInfo (esto funciona)
+            console.log('json data', json.data.cards);
+            // Establecer resInfo (informacion del restaurante)
             if (json?.data?.cards?.[2]?.card?.card?.info) {
                 setResInfo(json.data.cards[2].card.card.info);
-                //console.log(json.data.cards[2].card.card.info);
             }
             
             // Top picks - usar la lógica que funcionaba
-            if (json?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards) {
-                const regularCards = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards;
-
-                // Buscar top picks en la posición que funcionaba
-                if (regularCards[1]?.card?.card?.carousel?.[0]?.dish?.info?.addons?.[0]?.choices) {
-                    const topPicksData = regularCards[1].card.card.carousel[0].dish.info.addons[0].choices;
-                    console.log('Top picks encontrados:', topPicksData);
+            if (json?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards) {
+                const regularCards = json.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards;
+                // Buscar top picks
+                if (regularCards[1]?.card?.card?.carousel) {
+                    const topPicksData = json.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.carousel;
+                    console.log('Top picks encontrados en carousel:', topPicksData);
+                    setTopPicks(topPicksData);
+                }
+                if (regularCards[1]?.card?.card?.itemCards) {
+                    const topPicksData = json.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards;
+                    console.log('Top picks encontrados en itemCards:', topPicksData);
                     setTopPicks(topPicksData);
                 }
                 
                 // Buscar recommended dishes
-                const recommendedCard = regularCards.find(card => 
-                    card?.card?.card?.title?.toLowerCase().includes('recommended')
-                );
-                
-                if (recommendedCard?.card?.card?.itemCards) {
-                    setRecommendedDishes(recommendedCard.card.card.itemCards);
-                }
+                const recommendedCard = regularCards[3]?.card?.card?.itemCards;
+                console.log('recommendedCards', recommendedCard);
+                setRecommendedDishes(recommendedCard);
             }
             
         } catch (error) {

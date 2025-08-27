@@ -12,7 +12,7 @@ const Body = () => {
     if (onlineStatus === false) return (
         <Offline />
     );
-    
+    console.log(restaurants);
     return (
         <div className="body">
             <SearchBar
