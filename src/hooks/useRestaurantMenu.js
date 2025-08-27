@@ -21,8 +21,8 @@ const useRestaurantMenu = resId => {
             }
             
             // Top picks - usar la lógica que funcionaba
-            if (json?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards) {
-                const regularCards = json.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards;
+            if (json?.data?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards || json?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards) {
+                const regularCards = json.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards || json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards;
                 // Buscar top picks
                 if (regularCards[1]?.card?.card?.carousel) {
                     const topPicksData = json.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.carousel;
