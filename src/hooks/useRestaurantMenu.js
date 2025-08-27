@@ -36,7 +36,7 @@ const useRestaurantMenu = resId => {
                 }
                 
                 // Buscar recommended dishes
-                const recommendedCard = regularCards[3]?.card?.card?.itemCards;
+                const recommendedCard = regularCards[3]?.card?.card?.itemCards || regularCards[2]?.card?.card?.itemCards;
                 console.log('recommendedCards', recommendedCard);
                 setRecommendedDishes(recommendedCard);
             }
