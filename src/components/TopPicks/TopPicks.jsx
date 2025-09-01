@@ -1,12 +1,13 @@
 import { CDN_URL } from "../../utils/constants";
 import './TopPicks.css';
+import useAddItemToCart from "../../hooks/useAddItemToCart";
 
 const TopPicks = ({ topPicks }) => {
     // Si no hay topPicks, no mostrar nada
     if (!topPicks || topPicks.length === 0) {
         return null;
     }
-    
+    const handleAddItem = useAddItemToCart();
     return (
         <div className="top-picks-section">
             <h2>🍽️ Top Picks</h2>
@@ -39,7 +40,7 @@ const TopPicks = ({ topPicks }) => {
                                     <span className="pick-price">₹{(pick.dish?.info?.price || pick.card?.info?.price || pick.dish?.info?.defaultPrice || pick.card?.info?.defaultPrice || 0) / 100}</span>
                                 </div>
                             </div>
-                            <button className="add-button">ADD</button>
+                            <button className="add-button" onClick={() => handleAddItem(pick)}>ADD</button>
                         </div>
                     </div>
                 ))}

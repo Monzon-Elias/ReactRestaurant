@@ -1,15 +1,17 @@
 import { CDN_URL } from "../../utils/constants";
 import './RecommendedDishes.css';
+import useAddItemToCart from "../../hooks/useAddItemToCart";
 
 const RecommendedDishes = ({ recommendedDishes }) => {
     if (!recommendedDishes || recommendedDishes.length === 0) {
         return null;
     }
-
+    const handleAddItem = useAddItemToCart();
+    console.log('recommendedDishes', recommendedDishes);
     return (
         <div className="recommended-dishes-section">
             <h2>⭐ Recommended Dishes</h2>
-            <div className="recommended-dishes-grid">
+            <div className="recommended-dishes-grid">   
                 {recommendedDishes.map((dish, index) => (
                     <div key={index} className="recommended-dish-item">
                         <div className="dish-content">
@@ -39,7 +41,7 @@ const RecommendedDishes = ({ recommendedDishes }) => {
                                 <span className="placeholder-icon">🍜</span>
                                 <span className="placeholder-text">Foto no disponible</span>
                             </div>}
-                                <button className="add-button">ADD</button>
+                                <button className="add-button" onClick={() => handleAddItem(dish)}>ADD</button>
                             </div>
                         </div>
                     </div>

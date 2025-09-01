@@ -9,11 +9,14 @@ import Contact from './components/Contact/Contact.jsx'
 import Error from './components/Error/Error.jsx'
 import HeroSection from './utils/HeroSection.jsx'
 import RestaurantMenu from './components/RestaurantMenu/RestaurantMenu.jsx'
-
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore.js';
+import Cart from './components/Cart/Cart.jsx';
 
 const AppLayout = ()=> {
-    const {resId} = useParams();
+
     return (
+        <Provider store={appStore}>
         <div className="app">
             <Header />
             <main className="main-content">
@@ -22,6 +25,7 @@ const AppLayout = ()=> {
             </main>
             <Footer />
         </div>
+        </Provider>
     )
 }
 
@@ -45,6 +49,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurant/:resId",
                 element: <RestaurantMenu />
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             }
         ]
     },
